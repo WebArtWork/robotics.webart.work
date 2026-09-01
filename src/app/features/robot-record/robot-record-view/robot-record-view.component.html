@@ -1,0 +1,55 @@
+<article class="card">
+	@if (robot) {
+		<div class="card__list-item" (click)="viewRobot()">
+			<app-robot-short [entity]="robot" />
+		</div>
+	}
+
+	<h2 class="card__title">{{ entity.title }}</h2>
+
+	<div class="card__meta">
+		<span class="card__badge">{{ entity.year }}</span>
+		<span class="card__badge">{{ typeLabels[entity.recordType] }}</span>
+		<span class="card__badge">{{ statusLabels[entity.status] }}</span>
+		<span class="card__badge">{{ visibilityLabels[entity.visibility] }}</span>
+		@if (entity.verified) {
+			<span class="card__badge">Перевірено</span>
+		}
+	</div>
+
+	<p>{{ entity.description }}</p>
+
+	<div class="card__row"><dt>Дата події</dt><dd>{{ entity.eventDate }}</dd></div>
+	@if (entity.payload) {
+		<div class="card__row"><dt>Модуль/навантаження</dt><dd>{{ entity.payload }}</dd></div>
+	}
+	@if (entity.firmwareVersion) {
+		<div class="card__row"><dt>Версія прошивки</dt><dd>{{ entity.firmwareVersion }}</dd></div>
+	}
+	@if (entity.product) {
+		<div class="card__row"><dt>Деталь/витратний матеріал</dt><dd>{{ entity.product }}</dd></div>
+	}
+	@if (entity.quantity !== null) {
+		<div class="card__row"><dt>Кількість</dt><dd>{{ entity.quantity }} {{ entity.units }}</dd></div>
+	}
+	@if (entity.cost !== null) {
+		<div class="card__row"><dt>Вартість</dt><dd>{{ entity.cost }} {{ entity.currency }}</dd></div>
+	}
+	@if (entity.distanceKm !== null) {
+		<div class="card__row"><dt>Пройдена відстань</dt><dd>{{ entity.distanceKm }} км</dd></div>
+	}
+	@if (entity.unitsProcessed !== null) {
+		<div class="card__row"><dt>Оброблено одиниць</dt><dd>{{ entity.unitsProcessed }}</dd></div>
+	}
+	@if (entity.batteryHealthPct !== null) {
+		<div class="card__row"><dt>Стан батареї</dt><dd>{{ entity.batteryHealthPct }}%</dd></div>
+	}
+
+	@if (entity.attachments.length) {
+		<div class="card__photos">
+			@for (a of entity.attachments; track a.url) {
+				<span class="card__badge">{{ a.type }}: {{ a.url }}</span>
+			}
+		</div>
+	}
+</article>

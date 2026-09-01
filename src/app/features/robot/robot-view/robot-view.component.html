@@ -1,0 +1,52 @@
+<article class="card">
+	<h2 class="card__title">{{ entity.name }} · {{ entity.operatingHours }} год</h2>
+
+	<div class="card__meta">
+		<span class="card__badge">{{ ownershipStatusLabels[entity.ownershipStatus] }}</span>
+		<span class="card__badge">{{ statusLabels[entity.status] }}</span>
+		<span class="card__badge">{{ visibilityLabels[entity.visibility] }}</span>
+	</div>
+
+	<div class="card__photos">
+		@for (photo of photos; track photo) {
+			<img class="card__photo" [src]="photo" alt="" (error)="onPhotoError($event, photo)" />
+		}
+	</div>
+
+	@if (missionHistory().length) {
+		<h3 class="card__section-title">Історія місій</h3>
+		<ul class="timeline">
+			@for (entry of missionHistory(); track entry.year) {
+				<li class="timeline__row">
+					<span class="timeline__season">{{ entry.year }}</span>
+					<span class="timeline__crop">{{ categoryEmoji(entity.category) }} {{ entry.task }}</span>
+					@if (entry.distanceKm !== null) {
+						<span class="timeline__yield">→ {{ entry.distanceKm }} км</span>
+					}
+				</li>
+			}
+		</ul>
+	}
+
+	<div class="card__row"><dt>Регіон</dt><dd>{{ entity.region }}, {{ entity.country }}</dd></div>
+	<div class="card__row"><dt>Серійний номер</dt><dd>{{ entity.serialNumber }}</dd></div>
+	<div class="card__row"><dt>Виробник</dt><dd>{{ entity.manufacturer }}</dd></div>
+	<div class="card__row"><dt>Координати</dt><dd>{{ entity.coordinates.lat }}, {{ entity.coordinates.lng }}</dd></div>
+	@if (entity.currentTask) {
+		<div class="card__row"><dt>Поточне завдання</dt><dd>{{ entity.currentTask }}</dd></div>
+	}
+	@if (entity.pricePerDay !== null) {
+		<div class="card__row"><dt>Ціна за день</dt><dd>{{ entity.pricePerDay }} {{ entity.currency }}</dd></div>
+	}
+
+	@if (historyRecords().length) {
+		<h3 class="card__section-title">Повна історія апарата</h3>
+		<div class="card__list">
+			@for (record of historyRecords(); track record._id) {
+				<div class="card__list-item" (click)="viewRecord(record)">
+					<app-robot-record-short [entity]="record" />
+				</div>
+			}
+		</div>
+	}
+</article>

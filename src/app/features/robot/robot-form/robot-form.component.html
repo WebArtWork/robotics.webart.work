@@ -1,0 +1,61 @@
+<form class="form" [formGroup]="form">
+	<div class="form__field">
+		<label class="form__label" for="name" translate>Назва апарата</label>
+		<input id="name" pInputText class="form__control" type="text" [formControlName]="'name'" [class._invalid]="form.get('name')?.invalid && form.get('name')?.touched" />
+		@if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+			<span class="form__error" translate>Назва обов'язкова</span>
+		}
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="category" translate>Категорія</label>
+		<p-select id="category" formControlName="category" [options]="categoryOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="manufacturer" translate>Виробник</label>
+		<input id="manufacturer" pInputText class="form__control" type="text" [formControlName]="'manufacturer'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="country" translate>Країна</label>
+		<input id="country" pInputText class="form__control" type="text" [formControlName]="'country'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="region" translate>Регіон</label>
+		<input id="region" pInputText class="form__control" type="text" [formControlName]="'region'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="operatingHours" translate>Наробіток (год)</label>
+		<p-inputnumber id="operatingHours" formControlName="operatingHours" [invalid]="form.get('operatingHours')?.invalid && form.get('operatingHours')?.touched" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="serialNumber" translate>Серійний номер</label>
+		<input id="serialNumber" pInputText class="form__control" type="text" [formControlName]="'serialNumber'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="ownershipStatus" translate>Статус власності</label>
+		<p-select id="ownershipStatus" formControlName="ownershipStatus" [options]="ownershipStatusOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="status" translate>Статус</label>
+		<p-select id="status" formControlName="status" [options]="statusOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="visibility" translate>Видимість</label>
+		<p-select id="visibility" formControlName="visibility" [options]="visibilityOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="currentTask" translate>Поточне завдання</label>
+		<input id="currentTask" pInputText class="form__control" type="text" [formControlName]="'currentTask'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="pricePerDay" translate>Ціна за день</label>
+		<p-inputnumber id="pricePerDay" formControlName="pricePerDay" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="currency" translate>Валюта</label>
+		<input id="currency" pInputText class="form__control" type="text" [formControlName]="'currency'" />
+	</div>
+
+	<div class="form__actions">
+		<button type="button" pButton class="form__submit" [disabled]="form.invalid"><span translate>Зберегти</span></button>
+	</div>
+</form>

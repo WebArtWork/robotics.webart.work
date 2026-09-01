@@ -1,0 +1,24 @@
+<article class="short">
+	<img
+		class="short__thumb"
+		[src]="photo"
+		[alt]="entity.name"
+		loading="lazy"
+		(error)="onPhotoError($event)"
+	/>
+
+	<div class="short__body">
+		<h3 class="short__title">{{ entity.name }} · {{ entity.region }}</h3>
+		<p class="short__address">{{ entity.operatingHours }} год · {{ entity.manufacturer }}</p>
+
+		<div class="short__meta">
+			<span>{{ ownershipStatusLabels[entity.ownershipStatus] }}</span>
+			@if (entity.currentTask) {
+				<span>{{ entity.currentTask }}</span>
+			}
+			@if (entity.pricePerDay !== null) {
+				<span>{{ entity.pricePerDay }} {{ entity.currency }}/день</span>
+			}
+		</div>
+	</div>
+</article>

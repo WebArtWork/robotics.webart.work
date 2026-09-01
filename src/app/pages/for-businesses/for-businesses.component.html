@@ -1,0 +1,48 @@
+@if (showForm()) {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Приєднатися до Robotics')() }}</h1>
+		</header>
+
+		<app-lead-form kind="business" [submitLabel]="translateService.translate('Надіслати заявку')()" />
+	</div>
+} @else {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Пропонуйте оренду, ремонт чи інтеграцію роботів')() }}</h1>
+			<p>{{ translateService.translate('Розміщуйте техніку та послуги в одному каталозі й отримуйте замовлення від перевірених клієнтів і операторів.')() }}</p>
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Розмістити бізнес')() }}</button>
+		</header>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Як це працює')() }}</h2>
+			<ul class="landing-page__list">
+				<li>{{ translateService.translate('Створіть профіль бізнесу з переліком послуг і техніки.')() }}</li>
+				<li>{{ translateService.translate('Пропонуйте продаж, оренду або ремонт/обслуговування апаратів.')() }}</li>
+				<li>{{ translateService.translate('Записи обслуговування автоматично поповнюють паспорт кожного апарата.')() }}</li>
+				<li>{{ translateService.translate('Отримуйте замовлення від користувачів і операторів платформи.')() }}</li>
+			</ul>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Чому Robotics')() }}</h2>
+			<p>{{ translateService.translate('Робота, яку ви виконуєте, стає частиною перевірної історії апарата — це підвищує довіру клієнтів і цінність вашого сервісу.')() }}</p>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Питання')() }}</h2>
+			<p-accordion [multiple]="true">
+				@for (item of faq; track item.question) {
+					<p-accordionpanel [value]="item.question">
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordioncontent>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
+					</p-accordionpanel>
+				}
+			</p-accordion>
+		</section>
+
+		<footer class="landing-page__cta">
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Розмістити бізнес')() }}</button>
+		</footer>
+	</div>
+}

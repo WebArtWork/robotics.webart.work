@@ -1,0 +1,12 @@
+<section class="robot-record">
+	@if (entity(); as item) {
+	<app-robot-record-view
+		[entity]="item"
+		[robot]="robot()"
+	/>
+	} @else {
+	<p-card class="robot-record__not-found">
+		<p translate>Запис не знайдено.</p>
+	</p-card>
+	}
+</section>

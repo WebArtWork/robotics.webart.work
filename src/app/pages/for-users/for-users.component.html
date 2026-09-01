@@ -1,0 +1,48 @@
+@if (showForm()) {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Приєднатися до Robotics')() }}</h1>
+		</header>
+
+		<app-lead-form kind="user" [submitLabel]="translateService.translate('Надіслати заявку')()" />
+	</div>
+} @else {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Купуйте, орендуйте або наймайте роботів — з підтвердженою історією')() }}</h1>
+			<p>{{ translateService.translate('Дрони, наземні роботи, автономні машини та промислові маніпулятори — з паспортом кожного апарата і перевіреними операторами.')() }}</p>
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Знайти робота')() }}</button>
+		</header>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Як це працює')() }}</h2>
+			<ul class="landing-page__list">
+				<li>{{ translateService.translate('Опублікуйте місію — зйомка, обстеження, доставка, обприскування — з локацією та термінами.')() }}</li>
+				<li>{{ translateService.translate('Обирайте робота та оператора з перевіреною історією виконаних робіт.')() }}</li>
+				<li>{{ translateService.translate('Купуйте, орендуйте або наймайте разом з оператором одним замовленням.')() }}</li>
+				<li>{{ translateService.translate('Перевіряйте паспорт апарата: години роботи, обслуговування, прошивку.')() }}</li>
+			</ul>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Чому Robotics')() }}</h2>
+			<p>{{ translateService.translate('Кожен апарат має цифровий паспорт, який лишається з ним при зміні власника — ви бачите реальний стан техніки, а не лише оголошення.')() }}</p>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Питання')() }}</h2>
+			<p-accordion [multiple]="true">
+				@for (item of faq; track item.question) {
+					<p-accordionpanel [value]="item.question">
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordioncontent>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
+					</p-accordionpanel>
+				}
+			</p-accordion>
+		</section>
+
+		<footer class="landing-page__cta">
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Знайти робота')() }}</button>
+		</footer>
+	</div>
+}

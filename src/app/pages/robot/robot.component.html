@@ -1,0 +1,13 @@
+<section class="robot">
+	@if (entity(); as item) {
+	@let rel = relations();
+	<app-robot-view
+		[entity]="item"
+		[records]="rel?.records ?? []"
+	/>
+	} @else {
+	<p-card class="robot__not-found">
+		<p translate>Апарат не знайдено.</p>
+	</p-card>
+	}
+</section>
