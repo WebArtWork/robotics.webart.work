@@ -62,6 +62,19 @@ export const routes: Routes = [
 					),
 			},
 			{
+				path: 'share',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Запросити в Robotics',
+						description:
+							'Відскануйте QR-код, щоб приєднатися до Robotics за кілька секунд.',
+					},
+				},
+				loadChildren: () =>
+					import('./pages/share/share.routes').then((m) => m.routes),
+			},
+			{
 				path: 'robots',
 				canActivate: [MetaGuard],
 				data: {
