@@ -1,0 +1,1 @@
+var e=[{path:``,loadComponent:()=>import(`./chunk-Nutrqo2u2.js`).then(o=>o.ForBusinessesPageComponent)}];export{e as routes};

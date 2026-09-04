@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-D6YboigT2.js`).then(o=>o.EditorComponent)}];export{t as routes};
