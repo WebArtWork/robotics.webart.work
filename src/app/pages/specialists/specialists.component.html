@@ -1,0 +1,26 @@
+<section class="specialists">
+	<header class="specialists__header">
+		<h1 translate>Спеціалісти</h1>
+		<p translate>
+			Інженери та техніки, що встановлюють, налаштовують і обслуговують
+			роботів після покупки чи оренди.
+		</p>
+	</header>
+
+	<div class="specialists__grid">
+		@for (item of specialists; track item.name) {
+			<article class="specialists__card">
+				<i class="pi pi-id-card specialists__icon"></i>
+				<h3 class="specialists__name">{{ item.name }}</h3>
+				<p class="specialists__meta">{{ item.skill }} · {{ item.region }}</p>
+			</article>
+		} @empty {
+			<p class="specialists__empty" translate>Спеціалістів поки не додано.</p>
+		}
+	</div>
+
+	<footer class="specialists__cta">
+		<p translate>Надаєте послуги інтеграції чи обслуговування роботів?</p>
+		<a routerLink="/for-operators" translate>Приєднатися як спеціаліст</a>
+	</footer>
+</section>

@@ -1,0 +1,26 @@
+<section class="manufacturers">
+	<header class="manufacturers__header">
+		<h1 translate>Виробники</h1>
+		<p translate>
+			Компанії, що випускають роботів і компоненти для платформи Robotics —
+			від промислових дронів до наземних та спеціалізованих платформ.
+		</p>
+	</header>
+
+	<div class="manufacturers__grid">
+		@for (item of manufacturers; track item.name) {
+			<article class="manufacturers__card">
+				<i class="pi pi-building manufacturers__icon"></i>
+				<h3 class="manufacturers__name">{{ item.name }}</h3>
+				<p class="manufacturers__meta">{{ item.specialty }} · {{ item.country }}</p>
+			</article>
+		} @empty {
+			<p class="manufacturers__empty" translate>Виробників поки не додано.</p>
+		}
+	</div>
+
+	<footer class="manufacturers__cta">
+		<p translate>Виробляєте роботів чи компоненти?</p>
+		<a routerLink="/for-manufacturers" translate>Приєднатися як виробник</a>
+	</footer>
+</section>

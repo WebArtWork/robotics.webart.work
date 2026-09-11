@@ -1,5 +1,5 @@
 {
-	"name": "ngx-prime-default",
+	"name": "robotics",
 	"private": true,
 	"version": "22.0.2",
 	"scripts": {
@@ -33,7 +33,7 @@
 		"@wawjs/ngx-form": "22.0.6",
 		"@wawjs/ngx-http": "22.0.6",
 		"@wawjs/ngx-map": "22.0.6",
-		"@wawjs/ngx-prime": "22.0.6",
+		"@wawjs/ngx-prime": "^22.0.6",
 		"@wawjs/ngx-socket": "22.0.6",
 		"@wawjs/ngx-tinymce": "22.0.6",
 		"@wawjs/ngx-translate": "22.0.6",

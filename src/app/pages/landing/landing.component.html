@@ -1,27 +1,405 @@
-<main class="landing flex min-h-full flex-col items-center justify-center gap-8 p-6 text-center">
-	<img
-		src="/logo.png?v=20260901-robotics-mark"
-		alt=""
-		class="block w-[clamp(140px,25vw,280px)] h-auto"
-		height="1254"
-		width="1254"
-	/>
+<div class="landing min-h-dvh overflow-hidden bg-[var(--c-bg-primary)]">
+	<section class="landing__hero relative px-6 pt-6 pb-16 md:px-10 md:pt-10">
+		<div
+			class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14"
+		>
+			<div
+				class="flex flex-col items-start gap-6 text-left landing-reveal landing-reveal--slow"
+				pAnimateOnScroll
+				enterClass="landing-reveal--in"
+			>
+				<span
+					class="landing__eyebrow inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+					translate
+				>
+					<span class="landing__eyebrow-dot"></span>
+					Маркетплейс роботів і автоматизації
+				</span>
 
-	<div class="flex max-w-[560px] flex-col gap-4">
-		<h1 class="m-0 text-3xl font-bold text-[var(--c-text-primary)] md:text-4xl" translate>
-			Robotics
-		</h1>
+				<h1
+					class="m-0 max-w-xl text-4xl leading-[1.1] font-medium tracking-tight text-[var(--c-text-secondary)] md:text-6xl"
+				>
+					<span translate>Роботи з перевіреною історією.</span><br />
+					<span class="text-[var(--c-primary)]" translate>В одному місці.</span>
+				</h1>
 
-		<p class="m-0 text-[var(--c-text-secondary)]" translate>
-			Дрони, наземні роботи та маніпулятори — в оренду чи на завдання, з паспортом техніки, що зберігає історію обслуговування й прошивки при зміні власника.
-		</p>
+				<p
+					class="m-0 max-w-md text-base leading-relaxed text-[var(--c-text-muted)] md:text-lg"
+					translate
+				>
+					Дрони, наземні роботи та маніпулятори — з паспортом техніки, що
+					зберігає обслуговування й прошивку при зміні власника.
+				</p>
+
+				<div class="flex flex-wrap items-center gap-6 pt-2">
+					<a pButton routerLink="/sign">
+						<span translate>Почати</span>
+						<i class="pi pi-arrow-up-right"></i>
+					</a>
+					<a
+						class="landing__text-link inline-flex items-center gap-3 text-sm font-bold text-[var(--c-text-secondary)]"
+						href="#history"
+					>
+						<span translate>Як це працює</span>
+						<i class="pi pi-arrow-down"></i>
+					</a>
+				</div>
+			</div>
+
+			<div
+				class="landing__hero-visual relative landing-reveal landing-reveal--slower"
+				pAnimateOnScroll
+				enterClass="landing-reveal--in"
+			>
+				<div class="landing__hero-panel flex h-full w-full items-center justify-center rounded-2xl">
+					<i class="pi pi-box landing__hero-watermark"></i>
+				</div>
+
+				<div class="landing__fleet-preview absolute right-6 -bottom-8 left-0">
+					<div class="flex items-center gap-3 text-base font-bold">
+						<span class="landing__document-icon"><i class="pi pi-box"></i></span>
+						<span class="flex flex-col">
+							<span translate>Паспорт робота</span>
+							<strong
+								class="text-xs font-normal text-[var(--c-text-muted)]"
+								translate
+								>Історія без втрат при продажу</strong
+							>
+						</span>
+						<i class="pi pi-arrow-up-right ml-auto text-[var(--c-primary)]"></i>
+					</div>
+					<div
+						class="mt-3 flex flex-wrap gap-4 border-t border-[var(--c-border)] pt-3 text-xs"
+					>
+						<span
+							><i class="pi pi-check text-[var(--c-primary)]"></i>
+							<span translate>Обслуговування</span></span
+						>
+						<span
+							><i class="pi pi-check text-[var(--c-primary)]"></i>
+							<span translate>Місії</span></span
+						>
+						<span
+							><i class="pi pi-check text-[var(--c-primary)]"></i>
+							<span translate>Прошивка</span></span
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="landing__principles px-6 md:px-10">
+		<div
+			class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 border-y border-[var(--c-border)] py-6 text-sm"
+		>
+			<span
+				class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+				translate
+				>Один робот. Одна історія.</span
+			>
+			<div class="flex flex-wrap items-center gap-4 text-[var(--c-text-secondary)]">
+				<span translate>Роботи</span>
+				<b class="text-[var(--c-text-muted)] font-normal">+</b>
+				<span translate>Виробники</span>
+				<b class="text-[var(--c-text-muted)] font-normal">+</b>
+				<span translate>Спеціалісти</span>
+				<b class="text-[var(--c-text-muted)] font-normal">+</b>
+				<span translate>Оператори</span>
+				<b class="text-[var(--c-text-muted)] font-normal">+</b>
+				<span translate>Бізнес</span>
+			</div>
+		</div>
 	</div>
 
-	<div class="flex flex-wrap items-center justify-center gap-3">
-		<a pButton routerLink="/sign" severity="primary" translate>Почати</a>
-		<a pButton routerLink="/for-users" severity="secondary" translate>Для користувачів</a>
-		<a pButton routerLink="/for-operators" severity="secondary" translate>Для операторів</a>
-		<a pButton routerLink="/for-businesses" severity="secondary" translate>Для бізнесу</a>
-		<a pButton routerLink="/for-manufacturers" severity="secondary" translate>Для виробників</a>
-	</div>
-</main>
+	<section class="landing__history px-6 py-16 md:px-10 md:py-24" id="history">
+		<div class="mx-auto max-w-6xl">
+			<div
+				class="mb-11 flex flex-col items-end justify-between gap-6 lg:flex-row"
+			>
+				<div>
+					<span
+						class="mb-4 block text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+						translate
+						>01 / Історія техніки</span
+					>
+					<h2
+						class="m-0 max-w-md text-3xl leading-tight font-medium tracking-tight text-[var(--c-text-secondary)] md:text-5xl"
+						translate
+					>
+						Повна історія апарата, а не окрема угода.
+					</h2>
+				</div>
+				<p class="m-0 max-w-xs text-base leading-relaxed text-[var(--c-text-muted)]" translate>
+					Обслуговування, місії та оновлення прошивки зберігаються за
+					апаратом, а не за власником.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+				<div
+					class="landing-reveal"
+					pAnimateOnScroll
+					enterClass="landing-reveal--in"
+				>
+					<span
+						class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+						translate
+						>Коли історія втрачається</span
+					>
+					<h3
+						class="my-4 text-2xl leading-snug font-medium tracking-tight text-[var(--c-text-secondary)]"
+						translate
+					>
+						Новий власник не повинен купувати кота в мішку.
+					</h3>
+					<p class="m-0 mb-4 text-base leading-relaxed text-[var(--c-text-muted)]" translate>
+						Дані про обслуговування залишаються в однієї майстерні,
+						прошивка — в іншої, а історію польотів і навантаження ніхто не
+						фіксує централізовано.
+					</p>
+					<p class="m-0 text-base leading-relaxed text-[var(--c-text-muted)]" translate>
+						Robotics об’єднує ці дані в один цифровий паспорт апарата.
+					</p>
+					<div
+						class="mt-6 flex gap-4 border-t border-[var(--c-border)] pt-6"
+					>
+						<i class="pi pi-arrow-right-down text-2xl text-[var(--c-primary)]"></i>
+						<p class="m-0 text-sm text-[var(--c-text-muted)]">
+							<strong
+								class="mb-1.5 block font-semibold text-[var(--c-text-secondary)]"
+								translate
+								>Реальна експлуатація видно одразу.</strong
+							>
+							<span translate
+								>Покупець бачить наліт годин, останнє обслуговування та
+								версію прошивки ще до угоди.</span
+							>
+						</p>
+					</div>
+				</div>
+
+				<div
+					class="landing__fleet rounded-xl border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-7 landing-reveal landing-reveal--slow"
+					pAnimateOnScroll
+					enterClass="landing-reveal--in"
+				>
+					<div class="mb-5 flex items-start justify-between gap-3">
+						<div>
+							<span
+								class="text-xs font-bold tracking-widest text-[var(--c-primary)] uppercase"
+								translate
+								>Паспорт робота</span
+							>
+							<h3
+								class="mt-2 text-lg font-semibold tracking-tight text-[var(--c-text-secondary)]"
+								translate
+							>
+								Усе важливе — у хронології.
+							</h3>
+						</div>
+						<span
+							class="rounded border border-[var(--c-border)] bg-[var(--c-bg-tertiary)] px-2 py-0.5 text-xs text-[var(--c-text-muted)]"
+							translate
+							>Приклад</span
+						>
+					</div>
+
+					@for (event of fleetEvents; track event.date) {
+					<div class="landing__history-row relative flex gap-4 py-5">
+						<div
+							class="landing__history-point flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg-tertiary)] text-lg text-[var(--c-primary)]"
+						>
+							<i class="{{ event.icon }}"></i>
+						</div>
+						<div class="min-w-0 flex-1">
+							<span
+								class="text-xs tracking-wide text-[var(--c-text-muted)] uppercase"
+								>{{ event.date }}</span
+							>
+							<h4
+								class="mt-0.5 text-sm font-semibold text-[var(--c-text-secondary)]"
+							>
+								{{ event.title }}
+							</h4>
+							<p class="mt-0.5 text-xs text-[var(--c-text-muted)]">
+								{{ event.description }}
+							</p>
+						</div>
+						<span
+							class="h-fit self-center rounded border border-[var(--c-border)] px-2 py-0.5 text-xs text-[var(--c-text-muted)]"
+							>{{ event.tag }}</span
+						>
+					</div>
+					}
+
+					<div
+						class="mt-2 flex items-center justify-between border-t border-[var(--c-border)] pt-4 text-xs font-semibold text-[var(--c-text-secondary)]"
+					>
+						<span translate>Переглянути всіх роботів</span>
+						<i class="pi pi-arrow-up-right"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section
+		class="landing__features bg-[var(--c-bg-secondary)] px-6 py-16 md:px-10 md:py-24"
+		id="features"
+	>
+		<div class="mx-auto max-w-6xl">
+			<div
+				class="mb-11 flex flex-col items-end justify-between gap-6 lg:flex-row"
+			>
+				<div>
+					<span
+						class="mb-4 block text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+						translate
+						>02 / Можливості</span
+					>
+					<h2
+						class="m-0 max-w-md text-3xl leading-tight font-medium tracking-tight text-[var(--c-text-secondary)] md:text-5xl"
+						translate
+					>
+						Усе необхідне для роботи з роботами.
+					</h2>
+				</div>
+				<a
+					class="landing__text-link inline-flex items-center gap-3 text-sm font-bold text-[var(--c-text-secondary)]"
+					routerLink="/explore"
+				>
+					<span translate>Переглянути можливості</span>
+					<i class="pi pi-arrow-up-right"></i>
+				</a>
+			</div>
+
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (feature of features; track feature.title; let i = $index) {
+				<p-card
+					class="landing__feature-card landing-reveal"
+					pAnimateOnScroll
+					enterClass="landing-reveal--in"
+					[style.animation-delay.ms]="i * 100"
+					[routerLink]="feature.route"
+				>
+					<div class="relative flex h-full flex-col gap-6">
+						<span
+							class="absolute top-0 right-0 text-xs text-[var(--c-text-muted)]"
+							>{{ feature.number }}</span
+						>
+						<i class="{{ feature.icon }} text-3xl text-[var(--c-primary)]"></i>
+						<div class="flex flex-1 flex-col gap-2">
+							<h3
+								class="m-0 text-base font-bold tracking-tight text-[var(--c-text-secondary)]"
+							>
+								{{ feature.title }}
+							</h3>
+							<p class="m-0 text-sm leading-relaxed text-[var(--c-text-muted)]">
+								{{ feature.description }}
+							</p>
+						</div>
+						<div
+							class="mt-auto flex items-center justify-between border-t border-[var(--c-border)] pt-4 text-xs font-semibold text-[var(--c-text-secondary)]"
+						>
+							<span>{{ feature.linkLabel }}</span>
+							<i class="pi pi-arrow-up-right text-[var(--c-primary)]"></i>
+						</div>
+					</div>
+				</p-card>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="landing__audience px-6 py-16 md:px-10 md:py-24" id="audience">
+		<div
+			class="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24"
+		>
+			<div class="landing-reveal" pAnimateOnScroll enterClass="landing-reveal--in">
+				<span
+					class="mb-4 block text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+					translate
+					>03 / Для всієї екосистеми</span
+				>
+				<h2
+					class="m-0 text-3xl leading-tight font-medium tracking-tight text-[var(--c-text-secondary)] md:text-5xl"
+				>
+					<span translate>Одна платформа.</span><br />
+					<span translate>Для всіх,</span><br />
+					<span class="text-[var(--c-primary)]" translate>хто працює з роботами.</span>
+				</h2>
+				<p
+					class="mt-6 max-w-sm text-base leading-relaxed text-[var(--c-text-muted)]"
+					translate
+				>
+					Користувачі знаходять перевірену техніку. Оператори й
+					спеціалісти пропонують послуги. Виробники бачать реальну
+					експлуатацію.
+				</p>
+			</div>
+
+			<div
+				class="flex flex-col landing-reveal landing-reveal--slow"
+				pAnimateOnScroll
+				enterClass="landing-reveal--in"
+			>
+				@for (audience of audiences; track audience.route; let i = $index) {
+				<a
+					class="landing__audience-row flex items-center gap-6 border-b border-[var(--c-border)] py-6 first:pt-0"
+					[routerLink]="audience.route"
+				>
+					<span class="text-xs text-[var(--c-text-muted)]">{{
+						audience.number
+					}}</span>
+					<div class="flex-1">
+						<h3
+							class="m-0 text-xl font-medium tracking-tight text-[var(--c-text-secondary)]"
+						>
+							{{ audience.title }}
+						</h3>
+						<p class="mt-1 text-sm text-[var(--c-text-muted)]">
+							{{ audience.description }}
+						</p>
+					</div>
+					<i
+						class="pi pi-arrow-up-right ml-auto text-xl text-[var(--c-text-muted)]"
+					></i>
+				</a>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="landing__cta px-6 pb-16 md:px-10 md:pb-24">
+		<div
+			class="landing__cta-panel relative mx-auto max-w-6xl rounded-2xl px-8 py-12 text-white md:px-16 md:py-16 landing-reveal"
+			pAnimateOnScroll
+			enterClass="landing-reveal--in"
+		>
+			<span
+				class="text-xs font-bold tracking-widest text-white/70 uppercase"
+				translate
+				>Паспорт вашого робота</span
+			>
+			<h2
+				class="m-0 mt-5 mb-8 max-w-xl text-3xl leading-tight font-medium tracking-tight md:text-5xl"
+			>
+				<span translate>Купуйте, продавайте.</span><br />
+				<span translate>Майте повну історію.</span>
+			</h2>
+			<div class="flex flex-wrap items-center gap-6">
+				<a pButton severity="contrast" routerLink="/sign">
+					<span translate>Почати</span>
+					<i class="pi pi-arrow-up-right"></i>
+				</a>
+				<a
+					class="border-b border-white/40 pb-0.5 text-sm text-white"
+					routerLink="/for-manufacturers"
+					translate
+					>Для виробників</a
+				>
+			</div>
+		</div>
+	</section>
+</div>

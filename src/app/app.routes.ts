@@ -117,6 +117,34 @@ export const routes: Routes = [
 					),
 			},
 			{
+				path: 'manufacturers',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Виробники',
+						description: 'Компанії, що виробляють роботів і компоненти для платформи Robotics.',
+					},
+				},
+				loadChildren: () =>
+					import('./pages/manufacturers/manufacturers.routes').then(
+						(m) => m.routes,
+					),
+			},
+			{
+				path: 'specialists',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Спеціалісти',
+						description: 'Інженери й техніки, що встановлюють та обслуговують роботів.',
+					},
+				},
+				loadChildren: () =>
+					import('./pages/specialists/specialists.routes').then(
+						(m) => m.routes,
+					),
+			},
+			{
 				path: 'feed',
 				canActivate: [MetaGuard],
 				data: {

@@ -27,6 +27,42 @@
 			}
 		</li>
 
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/robots"
+				[name]="translateService.translate('Роботи')()"
+				[ariaLabel]="translateService.translate('Роботи')()"
+				icon="box"
+			/>
+		</li>
+
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/manufacturers"
+				[name]="translateService.translate('Виробники')()"
+				[ariaLabel]="translateService.translate('Виробники')()"
+				icon="building"
+			/>
+		</li>
+
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/specialists"
+				[name]="translateService.translate('Спеціалісти')()"
+				[ariaLabel]="translateService.translate('Спеціалісти')()"
+				icon="id-card"
+			/>
+		</li>
+
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/feed"
+				[name]="translateService.translate('Стрічка')()"
+				[ariaLabel]="translateService.translate('Стрічка')()"
+				icon="images"
+			/>
+		</li>
+
 		<li class="mx-auto max-md:hidden"></li>
 
 		@if (sidebarToggler()) {
