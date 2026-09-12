@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-DgyaiLHV.js`).then(o=>o.RobotRecordComponent)}];export{t as routes};

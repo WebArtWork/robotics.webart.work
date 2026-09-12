@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-BGo-MJIV2.js`).then(o=>o.FeedComponent)}];export{t as routes};
